@@ -1,0 +1,7 @@
+<h1>Countdown Timer</h1>
+<div class="btn-group" role="group" aria-label="Basic example">
+  <button type="button" class="btn btn-secondary" (click)="countDown()">Start</button>
+  <button type="button" class="btn btn-secondary" (click)="stopCountDown()">Stop</button>
+  <button type="button" class="btn btn-secondary" (click)="stopCountDown() ; progress = 11">Reset</button>
+</div>
+<div>{{progress}}</div>

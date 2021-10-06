@@ -1,0 +1,5 @@
+<h2>Rating Bar</h2>
+<app-rating-bar-component [ratingBar]="ratingBarParent"></app-rating-bar-component>
+<button *ngFor="let item of ratingBars"  type="button" [ngStyle]="{'backgroundColor':item.active == true ? 'red' : '' }"
+        (click)="setItem(item)" class="btn btn-secondary">{{item.value}}</button>
+
