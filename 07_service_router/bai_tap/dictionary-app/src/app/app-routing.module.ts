@@ -9,7 +9,7 @@ const routes: Routes = [{
   component: DictionaryPageComponent
 },
   {
-    path: 'detail/:name',
+    path: 'detail/:word',
     component: DictionaryDetailComponent
   }];
 

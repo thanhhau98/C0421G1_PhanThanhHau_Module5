@@ -6,10 +6,10 @@
     <td>Mean</td>
     <td>Action</td>
   </tr>
-  <tr *ngFor="let word of words; index as i">
+  <tr *ngFor="let item of words; index as i">
     <td>{{i + 1}}</td>
-    <td>{{word.word}}</td>
-    <td>{{word.mean}}</td>
-    <td [routerLink]="['/detail',word.word]">Detail</td>
+    <td>{{item.word}}</td>
+    <td>{{item.mean}}</td>
+    <a [routerLink]="['/detail',item.word]">Detail</a>
   </tr>
 </table>

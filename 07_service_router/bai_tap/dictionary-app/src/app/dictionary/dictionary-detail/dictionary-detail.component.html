@@ -1,3 +1,9 @@
 <h1>Word Detail</h1>
-<h3>{{wordDetail.mean}}</h3>
-<h3>{{wordDetail.word}}</h3>
+<div *ngIf="wordDetail; else tmpl">
+  <h2>Word: {{wordDetail.word}}</h2>
+  <h2>Mean: {{wordDetail.mean}}</h2>
+</div>
+
+<ng-template #tmpl>
+  <h2>Nothing to show</h2>
+</ng-template>

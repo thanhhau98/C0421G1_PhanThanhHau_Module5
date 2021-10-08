@@ -18,11 +18,7 @@ export class DictionaryServiceService {
     return this.words;
   }
 
-  findByWord(word: string) {
-    for(let i = 0 ; i < this.words.length ; i++) {
-      if (this.words[i] == word){
-        return this.words[i];
-      }
+  findByWord(word: string): Iword {
+    return this.words.find(item => item.word === word);
     }
-  }
 }

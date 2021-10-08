@@ -10,15 +10,15 @@ import {DictionaryServiceService} from '../../service/dictionary-service.service
 })
 export class DictionaryDetailComponent implements OnInit {
   wordDetail: Iword;
-  constructor(private activedRouter: ActivatedRoute , private dictionaryService: DictionaryServiceService) {
-    activedRouter.paramMap.subscribe((paramMap: ParamMap) => {
-      const word = paramMap.get('word');
-      console.log(word);
-      this.wordDetail = dictionaryService.findByWord(word);
-    });
-  }
+  constructor(private activedRouter: ActivatedRoute ,
+              private dictionaryService: DictionaryServiceService) {}
 
   ngOnInit(): void {
+      this.activedRouter.paramMap.subscribe((paramMap: ParamMap) => {
+      const word = paramMap.get('word');
+      console.log(word);
+      this.wordDetail = this.dictionaryService.findByWord(word);
+    });
   }
 
 }
