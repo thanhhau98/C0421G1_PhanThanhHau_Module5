@@ -40,16 +40,24 @@
   <div class="form-group">
     <label>Age</label>
     <input id="age" name="age" type="text" formControlName="age" >
-<!--    <div *ngIf="!age.valid && (age.dirty ||age.touched)">-->
-<!--    <div *ngIf="age.errors.gte"></div>-->
   </div>
+  <div style="color: red" *ngIf="registerForm.controls.age.hasError('required')
+  && registerForm.controls.age.touched">Age không được để trống</div>
+  <div style="color: red" *ngIf="registerForm.controls.age.hasError('invalid')
+  && registerForm.controls.age.touched">Age phải lớn hơn 18</div>
   <div class="form-group">
     <label>Gender</label>
     <input type="text" formControlName="gender" >
   </div>
+  <div style="color: red" *ngIf="registerForm.controls.gender.hasError('required')
+  && registerForm.controls.gender.touched">Gender không được để trống</div>
   <div class="form-group">
     <label>Phone</label>
     <input type="text" formControlName="phone" >
   </div>
+  <div style="color: red" *ngIf="registerForm.controls.phone.hasError('required')
+  && registerForm.controls.phone.touched">Phone không được để trống</div>
+  <div style="color: red" *ngIf="registerForm.controls.phone.hasError('pattern')
+  && registerForm.controls.phone.touched">Phone phải đúng định dạng</div>
   <button type="submit" class="btn btn-primary">Register</button>
 </form>

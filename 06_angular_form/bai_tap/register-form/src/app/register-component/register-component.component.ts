@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {gte} from '../gte.validator';
+import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-register-component',
@@ -15,15 +14,20 @@ export class RegisterComponentComponent implements OnInit {
       password: new FormControl("" , [Validators.required, Validators.minLength(6)]),
       confirmPassword: new FormControl("" , [Validators.required, Validators.minLength(6)]),
       country: new FormControl("", [Validators.required]),
-      age: new FormControl("", [Validators.required]),
+      age: new FormControl("", [Validators.required , this.validatePoint]),
       gender: new FormControl("" , Validators.required),
       phone: new FormControl("" , [Validators.required , Validators.pattern(' ^\\+84\\d{9,10}$')])
       }
     );
   }
 
-  get age(){
-    return this.age.get('age');
+  validatePoint(point: AbstractControl){
+    let value = point.value;
+    if (value < 18){
+      return { "invalid" : true };
+      } else {
+      return  null ;
+    }
   }
 
   ngOnInit(): void {
